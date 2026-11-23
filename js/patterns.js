@@ -23,7 +23,7 @@ export const PATTERNS = [
     // round the centre dot (where the flower is drawn). The corner
     // figure-of-eights and lotuses are decorations drawn around it.
     name: 'Lotus kolam', level: 'from a real kolam', lesson: 'Sarali varisai 1',
-    dotsText: '13 dots set out in a diamond: rows of 1, 3, 5, 3, 1.',
+    dotsText: '13 dots set out in a diamond: rows of 1, 3, 5, 3, 1. The dots, called pulli, go down first, one pinch of flour each. They are the kolam’s grid: every line is measured against them, which keeps a freehand drawing even and balanced.',
     lineTexts: [
       'The first line weaves around the outer dots without touching them, crossing itself as it goes and looping round the four tips.',
       'A second line curls around the four corner dots.',

@@ -286,7 +286,7 @@ function startLevel(lv) {
   G.level = lv.id;
   hidePicker();
   // Level 1 opens with "see how it's built": dots, each line, the rules, symmetry
-  if (lv.id === 1) { startExplore(LOTUS, () => startRitual(1)); log.append('timeline', 'how it’s built'); return; }
+  if (lv.id === 1 && !S.explored) { startExplore(LOTUS, () => startRitual(1)); return; }
   startRitual(lv.id);
 }
 
@@ -347,7 +347,8 @@ function showDiscover(card = null, onGo = null) {
   $('discover-note').textContent = c.note || '';
   $('discover-sources').textContent = c.sources || '';
   $('discover-go').textContent = c.btn;
-  discoverGo = onGo || showPicker;
+  // the kolam card leads into “see how it’s built”, then straight into Level 1
+  discoverGo = onGo || (() => startLevel(COPY.levels[0]));
   $('discover').classList.add('show');
 }
 $('discover-go').onclick = () => { $('discover').classList.remove('show'); discoverGo(); };
@@ -376,7 +377,7 @@ function lineGroups(latt, rotP) {
 }
 
 function startExplore(pattern, then = null) {
-  E.then = then;
+  E.then = then; S.explored = true; log.append('timeline', 'how it’s built');
   hidePicker();
   S.playing = false;
   G.mode = 'explore'; G.pattern = pattern; G.phase = 'idle'; G.guide = null; G.refLoops = null;
