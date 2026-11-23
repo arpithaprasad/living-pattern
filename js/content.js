@@ -183,7 +183,7 @@ export const COPY = {
   exploreRulesText: 'Every dot sits inside its own loop, and every line returns to where it began: no loose ends.',
   exploreRulesSource: 'From a mathematical study of sikku kolams (Journal of Mathematics and the Arts, 2024).',
   exploreSym: 'Symmetry',
-  exploreSymText: 'Draw one quarter and turn it: the same shape repeats four times around the centre. That’s why, when you draw, your hand is copied in four places.',
+  exploreSymText: 'Draw one quarter and turn it: the same shape repeats four times around the centre. That’s why, in Level 1, you draw one quarter of each line and the other three appear.',
   exploreNext: 'Next →', exploreBack: '← Back', exploreGo: 'Now draw it yourself →', exploreSkip: 'skip',
   reflectRule: 'The rule you followed: every dot encircled, every line closed.',
   reflectYours: 'Yours', reflectReal: 'The real one',

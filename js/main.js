@@ -285,6 +285,8 @@ function markDone(level) {
 function startLevel(lv) {
   G.level = lv.id;
   hidePicker();
+  // Level 1 opens with "see how it's built": dots, each line, the rules, symmetry
+  if (lv.id === 1) { startExplore(LOTUS, () => startRitual(1)); log.append('timeline', 'how it’s built'); return; }
   startRitual(lv.id);
 }
 
@@ -373,7 +375,8 @@ function lineGroups(latt, rotP) {
   return groups.sort((a, b) => far(b[0]) - far(a[0]));
 }
 
-function startExplore(pattern) {
+function startExplore(pattern, then = null) {
+  E.then = then;
   hidePicker();
   S.playing = false;
   G.mode = 'explore'; G.pattern = pattern; G.phase = 'idle'; G.guide = null; G.refLoops = null;
@@ -409,12 +412,17 @@ function renderExplore() {
 }
 function exploreGo(d) {
   const j = E.i + d;
-  if (j >= E.steps.length) { $('explore').classList.remove('show'); startGuided(E.pattern); return; }
+  if (j >= E.steps.length) { exploreDone(false); return; }
   E.i = Math.max(0, j); E.t0 = performance.now(); renderExplore();
 }
 $('explore-next').onclick = () => exploreGo(1);
 $('explore-back').onclick = () => exploreGo(-1);
-$('explore-skip').onclick = () => { $('explore').classList.remove('show'); startGuided(E.pattern); };
+$('explore-skip').onclick = () => exploreDone(true);
+function exploreDone(skipped) {
+  $('explore').classList.remove('show');
+  log.set('explore', skipped ? `skipped at ${E.i + 1}/${E.steps.length}` : 'watched all');
+  if (E.then) { const f = E.then; E.then = null; f(); } else startGuided(E.pattern);
+}
 
 function drawExplore(now, dt) {
   const st = E.steps[E.i], t = Math.max(0, (now - E.t0) / 1000);

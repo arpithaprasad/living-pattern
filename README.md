@@ -22,6 +22,9 @@ Then open **http://localhost:8000** in Chrome. Click **Begin** and allow the cam
 2. Go to repo **Settings → Pages → Deploy from branch → `main` / root**.
 3. After a minute you get `https://<you>.github.io/<repo>/`. Open that link on any phone and prop the phone up.
 
+## v1.4.1 — “See how it’s built” is back
+Level 1 opens with the walkthrough again: the dots appear, each line draws in, then the rules and the symmetry, before you sweep. Logged as `explore` (watched all / skipped at). Skip it with the “skip” link.
+
 ## v1.4 — gesture warm-up + the new look
 - **Gesture warm-up** after Begin: four tiles (Sweep · Drop a dot · Draw · Sprinkle colour) with the illustrated hands. Each fills as the camera sees the gesture, turns green with a ✓, then the next lights up. "skip this one" / "skip warm-up" are there if a gesture won't register. ✋ opens it again any time. Skip it for a session with `?tutorial=0`. With a mouse: move across · click twice · hold and drag · hold.
 - Logged per tester: `warmup` (done / skipped which), `warmup_s`, `warmup_times` (when each gesture was learnt).

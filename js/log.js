@@ -12,6 +12,7 @@ const FIELDS = [
   ['levels_done', 'Levels completed'],
   ['hand_tracking', 'Hand tracking'],
   ['warmup', 'Gesture warm-up (done / skipped at)'],
+  ['explore', 'How it’s built (watched / skipped at)'],
   ['warmup_s', 'Warm-up time (s)'],
   ['warmup_times', 'Warm-up: each gesture learnt at'],
   ['t_first_line', 'Time to first line drawn (s)'],
