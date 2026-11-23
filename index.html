@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Living Pattern</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <video id="video" playsinline muted></video>
+  <canvas id="stage"></canvas>
+
+  <div id="prompt" aria-live="polite"></div>
+  <aside id="fact" aria-live="polite"><b>Did you know?</b><p id="fact-text"></p></aside>
+
+  <div id="controls">
+    <button id="btn-home" title="back to the levels (Esc)" aria-label="Back to levels">⌂</button>
+    <button id="btn-drone" title="mute the drone" aria-label="Mute drone">♪</button>
+    <button id="btn-reset" title="fresh start" aria-label="Reset pattern">↺</button>
+    <button id="btn-help" title="warm up your hands" aria-label="Gesture warm-up">✋</button>
+    <button id="btn-info" title="what’s a kolam?" aria-label="About kolam">?</button>
+  </div>
+
+  <div id="meter" aria-hidden="true">
+    <span class="mic">●</span>
+    <span class="track"><span id="meter-fill"></span><span class="mark"></span></span>
+    <span id="meter-label">listening</span>
+  </div>
+
+  <section id="tutorial" role="dialog" aria-labelledby="tut-title">
+    <div class="card warm">
+      <div class="tut-top"><span id="tut-count" class="kicker"></span><button id="tut-skip" class="link"></button></div>
+      <h2 id="tut-title"></h2>
+      <p id="tut-text"></p>
+      <div id="tut-tiles"></div>
+      <p id="tut-status" aria-live="polite"></p>
+      <div class="row"><button id="tut-next" class="primary"></button></div>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="card">
+      <h1 id="start-title"></h1>
+      <p id="start-sub"></p>
+      <button id="start-btn" class="primary"></button>
+      <p id="start-privacy" class="small"></p>
+    </div>
+  </section>
+
+  <section id="discover" role="dialog" aria-labelledby="discover-title">
+    <div class="card wide discover">
+      <img id="discover-img" src="assets/lotus-kolam.jpg" alt="A white rice-flour kolam with lotus motifs on a brown floor">
+      <div class="discover-text">
+        <p class="eyebrow" id="discover-place"></p>
+        <h2 id="discover-title"></h2>
+        <div id="discover-body"></div>
+        <p class="small" id="discover-note"></p>
+        <p class="small src" id="discover-sources"></p>
+        <div class="row"><button id="discover-go" class="primary"></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="explore" aria-live="polite">
+    <div class="card sheet">
+      <div class="tut-top"><span id="explore-count"></span><button id="explore-skip" class="link"></button></div>
+      <h2 id="explore-title"></h2>
+      <p id="explore-text"></p>
+      <p class="small src" id="explore-src"></p>
+      <div class="row"><button id="explore-back"></button><button id="explore-next" class="primary"></button></div>
+    </div>
+  </section>
+
+  <section id="picker" role="dialog" aria-labelledby="picker-title">
+    <div class="card wide">
+      <h2 id="picker-title"></h2>
+      <p id="picker-sub"></p>
+      <div id="picker-list"></div>
+      <button id="picker-free" class="link"></button>
+    </div>
+  </section>
+
+  <section id="reveal" role="dialog" aria-labelledby="reveal-title">
+    <div class="card">
+      <h2 id="reveal-title"></h2>
+      <p id="reveal-body"></p>
+      <div id="reveal-compare" hidden>
+        <figure><img id="reveal-yours" alt="The kolam you drew"><figcaption id="reveal-yours-cap"></figcaption></figure>
+        <figure id="reveal-photo"><img id="reveal-photo-img" alt="Photo of the lotus kolam this pattern comes from"><figcaption id="reveal-photo-cap"></figcaption></figure>
+      </div>
+      <p class="small" id="reveal-rule"></p>
+      <div id="reveal-more" hidden></div>
+      <p class="small src" id="reveal-sources"></p>
+      <div class="row">
+        <button id="reveal-more-btn"></button>
+        <button id="reveal-colour" class="primary" hidden></button>
+        <button id="reveal-free" class="primary" hidden></button>
+        <button id="reveal-learn" hidden></button>
+        <button id="reveal-close"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="logpanel" hidden>
+    <div class="card wide logcard">
+      <h2>Test log</h2>
+      <p class="small" id="log-count"></p>
+      <pre id="log-current"></pre>
+      <label class="small" for="log-notes">Observer notes: sang or hummed, quotes, where they got stuck</label>
+      <textarea id="log-notes" rows="3"></textarea>
+      <div class="row">
+        <button id="log-next" class="primary">Next tester (N)</button>
+        <button id="log-copy">Copy this session</button>
+        <button id="log-csv">Download all (.csv)</button>
+        <button id="log-close">Close (L)</button>
+        <button id="log-clear" class="link">clear all</button>
+      </div>
+    </div>
+  </section>
+
+  <button id="colour-done" class="floating" hidden></button>
+
+  <pre id="debug" hidden></pre>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
